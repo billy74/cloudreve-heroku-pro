@@ -1,6 +1,6 @@
 FROM redis:6.0.8-buster
 RUN apt update
-RUN apt install glibc-static glibc-dev libc-bin -y
+RUN apt install glibc-source libc-dev-bin libc6 libc-bin -y
 WORKDIR /root/cloudreve
 ADD cloudreve ./cloudreve
 ADD conf.ini ./conf.ini
