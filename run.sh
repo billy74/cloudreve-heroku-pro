@@ -14,4 +14,4 @@ Server = 127.0.0.1:6379
 Password =
 DB = 0
 EOF
-(redis-server &) && (./cloudreve -c ./conf.ini &) && (nohup python3 /root/faka/main.py >>output 2>&1)
+(redis-server &) && (./cloudreve -c ./conf.ini)
