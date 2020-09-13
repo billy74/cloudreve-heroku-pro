@@ -1,5 +1,4 @@
 FROM redis:6.0.8-buster
-COPY ./glibc-2.31-r0.apk /lib/
 RUN apt update
 RUN apt install redis-server git python3-pip screen unzip -y
 WORKDIR /root/cloudreve
@@ -13,7 +12,7 @@ RUN chmod +x ./cloudreve
 RUN chmod +x ./run.sh
 
 WORKDIR /root/faka
-ADD faka.zip
+ADD faka.zip ./faka.zip
 RUN unzip faka.zip
 RUN chmod +x main.py
 WORKDIR /root/cloudreve
