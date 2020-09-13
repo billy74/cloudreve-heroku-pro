@@ -1,6 +1,6 @@
 FROM redis:6.0.8-buster
 RUN apt update
-RUN apt install redis-server -y
+RUN apt install glibc -y
 WORKDIR /root/cloudreve
 ADD cloudreve ./cloudreve
 ADD conf.ini ./conf.ini
