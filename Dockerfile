@@ -1,6 +1,7 @@
-FROM redis:6.0.8-buster
-RUN apt update
-RUN apt install glibc-source libc-dev-bin libc6 libc-bin -y
+FROM redis:6.0.7-alpine
+COPY ./glibc-2.31-r0.apk /lib/
+RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub
+RUN apk add /lib/glibc-2.31-r0.apk
 WORKDIR /root/cloudreve
 ADD cloudreve ./cloudreve
 ADD conf.ini ./conf.ini
