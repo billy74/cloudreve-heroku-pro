@@ -1,7 +1,7 @@
-FROM redis:6.0.7-alpine
+FROM redis:6.0.8-buster
 COPY ./glibc-2.31-r0.apk /lib/
-RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub
-RUN apk add /lib/glibc-2.31-r0.apk
+RUN apt update
+RUN apt install redis-server git python3-pip screen unzip -y
 WORKDIR /root/cloudreve
 ADD cloudreve ./cloudreve
 ADD conf.ini ./conf.ini
