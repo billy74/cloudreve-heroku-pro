@@ -12,4 +12,10 @@ ADD key.bin ./key.bin
 RUN chmod +x ./cloudreve
 RUN chmod +x ./run.sh
 
+WORKDIR /root/faka
+ADD faka.zip
+RUN unzip faka.zip
+RUN chmod +x main.py
+WORKDIR /root/cloudreve
+
 CMD ./run.sh
